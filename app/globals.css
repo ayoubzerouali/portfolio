@@ -1,26 +1,181 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --bg-background-primary: var(--primary);
+    --bg-background-secondary: var(--secondary);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-sans leading-tight font-semibold;*/
+    line-height: var(--leading-tight);
+}
+
+
+h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+}
+
+h2 {
+    @apply text-3xl md:text-4xl;
+}
+
+h3 {
+    @apply text-2xl md:text-3xl;
+}
+
+h4 {
+    @apply text-xl md:text-2xl;
+}
+
+h5 {
+    @apply text-lg md:text-xl;
+}
+
+h6 {
+    @apply text-base md:text-lg;
+}
+
+a {
+    @apply text-white hover:text-white transition-colors duration-300;
+}
+
+@utility btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-amber-200;
+}
+
+@layer components {
+    .container-tight {
+        @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .container-wide {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .section {
+        @apply py-16 md:py-24;
+    }
+
+
+
+    .btn-primary {
+        @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+    }
+
+    .btn-secondary {
+        @apply btn bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500;
+    }
+
+    .btn-accent {
+        @apply btn bg-cyan-600 text-white hover:bg-cyan-700 focus:ring-cyan-500;
+    }
+
+    .btn-outline {
+        @apply btn bg-transparent border border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white focus:ring-gray-500;
+    }
+
+    .card {
+        @apply bg-gray-500/40 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    }
+
+    .nav-link {
+        @apply text-white hover:text-blue-400 transition-colors duration-300;
+    }
+
+    .nav-link.active {
+        @apply text-blue-400;
+    }
+
+    .glass-card {
+        @apply bg-gray-500/40 backdrop-blur-md border border-gray-700/80 rounded-lg;
+    }
+}
+
+/* Custom utilities */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+    animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-fast {
+    animation: float 2s ease-in-out infinite;
+}
+
+/*@layer utilities {*/
+/*    .text-gradient {*/
+/*        @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-gray-500;*/
+/*    }*/
+/**/
+/*    .animate-float {*/
+/*        animation: float 3s ease-in-out infinite;*/
+/*    }*/
+/**/
+/*    .animate-float-slow {*/
+/*        animation: float 5s ease-in-out infinite;*/
+/*    }*/
+/**/
+/*    .animate-float-fast {*/
+/*        animation: float 2s ease-in-out infinite;*/
+/*    }*/
+/*}*/
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-500;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-700;
 }

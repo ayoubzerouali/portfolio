@@ -1,0 +1,9 @@
+[16:35:14 2025-04-27] FETCHING Version 2.40.5
+[16:35:14 2025-04-27] CREATING /home/ayoub/.spicetify
+[16:35:14 2025-04-27] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.40.5/spicetify-2.40.5-linux-amd64.tar.gz
+[16:35:15 2025-04-27] EXTRACTING /home/ayoub/.spicetify/spicetify.tar.gz
+[16:35:15 2025-04-27] SETTING EXECUTABLE PERMISSIONS TO /home/ayoub/.spicetify/spicetify
+[16:35:15 2025-04-27] REMOVING /home/ayoub/.spicetify/spicetify.tar.gz
+[16:35:15 2025-04-27] APPENDING /home/ayoub/.spicetify to PATH in /home/ayoub/.bashrc
+[16:35:15 2025-04-27] spicetify v2.40.5 was installed successfully to /home/ayoub/.spicetify
+[16:35:15 2025-04-27] Run 'spicetify --help' to get started
