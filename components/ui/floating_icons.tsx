@@ -1,6 +1,6 @@
 "use client"
 import { Code, Database, Figma, Server, Terminal } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useRef, useEffect } from "react";
 
 const icons = [

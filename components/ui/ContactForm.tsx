@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 import { Send } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({

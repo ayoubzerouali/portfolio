@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import { Calendar, Clock } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { BlogPost } from '../../types';
 import Image from 'next/image';
 
