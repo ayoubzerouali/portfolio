@@ -8,17 +8,17 @@ const ContactSection = () => {
         {
             icon: <MapPin size={24} className="text-primary-400" />,
             title: 'Location',
-            details: 'San Francisco, CA',
+            details: 'Algiers, Algeria',
         },
         {
             icon: <Phone size={24} className="text-primary-400" />,
             title: 'Phone',
-            details: '+1 (234) 567-890',
+            details: '+213 0 (794) 204-344',
         },
         {
             icon: <Mail size={24} className="text-primary-400" />,
             title: 'Email',
-            details: 'contact@example.com',
+            details: 'ayoubxzer@gmail.com',
         },
     ];
 
@@ -67,7 +67,7 @@ const ContactSection = () => {
                                 <h4 className="text-lg font-medium text-white mb-4">Follow Me</h4>
                                 <div className="flex space-x-4">
                                     <a
-                                        href="https://github.com"
+                                        href="https://github.com/ayoubzerouali"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-10 h-10 rounded-full bg-background-accent hover:bg-primary-500 flex items-center justify-center text-white transition-colors duration-300"
@@ -77,7 +77,7 @@ const ContactSection = () => {
                                         </svg>
                                     </a>
                                     <a
-                                        href="https://twitter.com"
+                                        href="https://x.com/ayoubxzer"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-10 h-10 rounded-full bg-background-accent hover:bg-primary-500 flex items-center justify-center text-white transition-colors duration-300"
@@ -87,7 +87,7 @@ const ContactSection = () => {
                                         </svg>
                                     </a>
                                     <a
-                                        href="https://linkedin.com"
+                                        href="https://www.linkedin.com/in/ayoub-zerouali-9b06821b5/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-10 h-10 rounded-full bg-background-accent hover:bg-primary-500 flex items-center justify-center text-white transition-colors duration-300"

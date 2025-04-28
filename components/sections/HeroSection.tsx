@@ -64,8 +64,8 @@ const HeroSection = () => {
 
                     <div className="flex items-center space-x-4">
                         <SocialIcon icon={<Github size={20} />} href="https://github.com/ayoubzerouali" label="GitHub" />
-                        <SocialIcon icon={<Twitter size={20} />} href="https://twitter.com/ayoubxzer" label="Twitter" />
-                        <SocialIcon icon={<Linkedin size={20} />} href="https://linkedin.com/ayoubzerouli" label="LinkedIn" />
+                        <SocialIcon icon={<Twitter size={20} />} href="https://x.com/ayoubxzer" label="X (Twitter)" />
+                        <SocialIcon icon={<Linkedin size={20} />} href="https://www.linkedin.com/in/ayoub-zerouali-9b06821b5/" label="LinkedIn" />
                     </div>
                 </div>
                 <FloatingIcons />
