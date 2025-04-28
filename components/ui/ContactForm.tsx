@@ -30,10 +30,28 @@ const ContactForm = () => {
         // Simulate API call
         try {
             // In a real application, you would send the form data to your backend
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            //await new Promise(resolve => setTimeout(resolve, 1000));
+            const res = await fetch('/api/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+
+            if (!res.ok) {
+                throw new Error(
+                    res.status === 429
+                        ? 'Rate limit exceeded, please wait a minute and try again.'
+                        : 'There was an error sending your message. Please try again.'
+                )
+            }
+
+
             setSubmitSuccess(true);
             setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (error) {
+            console.log(error);
             setSubmitError('There was an error sending your message. Please try again.');
         } finally {
             setIsSubmitting(false);
@@ -48,12 +66,12 @@ const ContactForm = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center p-6"
                 >
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-500/20 text-primary-500 mb-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/20 text-blue-500 mb-4">
                         <Send size={24} />
                     </div>
                     <h3 className="text-2xl font-semibold mb-2">Message Sent!</h3>
                     <p className="text-gray-400 mb-6">
-                        Thank you for reaching out. I'll get back to you as soon as possible.
+                        Thank you for reaching out. I&pos;ll get back to you as soon as possible.
                     </p>
                     <button
                         onClick={() => setSubmitSuccess(false)}
@@ -78,7 +96,7 @@ const ContactForm = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full rounded-md bg-background-accent border border-gray-700 px-4 py-2 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 focus:outline-none"
+                                className="w-full rounded-md  border border-gray-700 px-4 py-2 text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
                                 placeholder="John Doe"
                             />
                         </div>
@@ -94,7 +112,7 @@ const ContactForm = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full rounded-md bg-background-accent border border-gray-700 px-4 py-2 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 focus:outline-none"
+                                className="w-full rounded-md border border-gray-700 px-4 py-2  placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
                                 placeholder="john@example.com"
                             />
                         </div>
@@ -111,7 +129,7 @@ const ContactForm = () => {
                             value={formData.subject}
                             onChange={handleChange}
                             required
-                            className="w-full rounded-md bg-background-accent border border-gray-700 px-4 py-2 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 focus:outline-none"
+                            className="w-full rounded-md  border border-gray-700 px-4 py-2 placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
                             placeholder="Project Inquiry"
                         />
                     </div>
@@ -127,7 +145,7 @@ const ContactForm = () => {
                             onChange={handleChange}
                             required
                             rows={5}
-                            className="w-full rounded-md bg-background-accent border border-gray-700 px-4 py-2 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 focus:outline-none resize-none"
+                            className="w-full rounded-md border border-gray-700 px-4 py-2  placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none resize-none"
                             placeholder="Tell me about your project or inquiry..."
                         />
                     </div>

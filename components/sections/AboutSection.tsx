@@ -10,7 +10,7 @@ const AboutSection = () => {
     ];
 
     return (
-        <section id="about" className="section bg-background-primary relative">
+        <section id="about" className="section  relative">
             <div className="container-wide">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -32,15 +32,15 @@ const AboutSection = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true, margin: "-100px" }}
                     >
-                        <h3 className="text-2xl font-semibold mb-6 text-white">My Journey</h3>
+                        <h3 className="text-2xl font-semibold mb-6">My Journey</h3>
                         <div className="space-y-4 text-gray-300">
                             <p>
-                                I'm a fullstack developer with a passion for building exceptional digital experiences.
+                                I&apos;m a fullstack developer with a passion for building exceptional digital experiences.
                                 My journey in development started 4 years ago, with the first two years focused on Laravel
                                 and its frontend options.
                             </p>
                             <p>
-                                For the past two years, I've been freelancing and developing as an indie hacker,
+                                For the past two years, I&apos;ve been freelancing and developing as an indie hacker,
                                 which has allowed me to work with a diverse range of technologies and projects.
                                 This experience has honed my ability to adapt quickly to new technologies and deliver
                                 high-quality solutions.
@@ -60,15 +60,15 @@ const AboutSection = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         viewport={{ once: true, margin: "-100px" }}
                     >
-                        <h3 className="text-2xl font-semibold mb-6 text-white">Skills & Expertise</h3>
+                        <h3 className="text-2xl font-semibold mb-6">Skills & Expertise</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {skills.map((skillGroup, index) => (
                                 <div key={index} className="glass-card p-4">
-                                    <h4 className="text-primary-400 font-medium mb-3">{skillGroup.category}</h4>
+                                    <h4 className="font-medium mb-3">{skillGroup.category}</h4>
                                     <ul className="space-y-2">
                                         {skillGroup.items.map((skill, i) => (
                                             <li key={i} className="flex items-center text-gray-300">
-                                                <span className="h-1.5 w-1.5 rounded-full bg-primary-500 mr-2"></span>
+                                                <span className="h-1.5 w-1.5 rounded-full bg-blue-500 mr-2"></span>
                                                 {skill}
                                             </li>
                                         ))}

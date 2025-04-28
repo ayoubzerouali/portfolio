@@ -3,13 +3,14 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
+
 }
 
 @theme inline {
     --color-background: var(--background);
-    --bg-background-primary: var(--primary);
-    --bg-background-secondary: var(--secondary);
     --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
 }
@@ -18,6 +19,8 @@
     :root {
         --background: #0a0a0a;
         --foreground: #ededed;
+        --primary: #1447e6;
+        --secondary: #1e2939
     }
 }
 
@@ -26,7 +29,6 @@ body {
     color: var(--foreground);
     font-family: Arial, Helvetica, sans-serif;
 }
-
 
 
 h1,
@@ -64,9 +66,9 @@ h6 {
     @apply text-base md:text-lg;
 }
 
-a {
-    @apply text-white hover:text-white transition-colors duration-300;
-}
+/*a {*/
+/*    @apply text-white hover:text-blue-400 transition-colors duration-300;*/
+/*}*/
 
 @utility btn {
     @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-amber-200;
@@ -92,7 +94,7 @@ a {
     }
 
     .btn-secondary {
-        @apply btn bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500;
+        @apply btn bg-gray-800 text-white hover:bg-gray-700 focus:ring-gray-500;
     }
 
     .btn-accent {
@@ -104,20 +106,24 @@ a {
     }
 
     .card {
-        @apply bg-gray-500/40 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+        @apply bg-gray-800/40 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
     }
 
-    .nav-link {
-        @apply text-white hover:text-blue-400 transition-colors duration-300;
-    }
-
-    .nav-link.active {
-        @apply text-blue-400;
-    }
-
+    /*.nav-link {*/
+    /*    @apply text-white hover:text-blue-400 transition-colors duration-300;*/
+    /*}*/
+    /*@utility nav-link {*/
+    /*    @apply text-white hover:text-blue-400 transition-colors duration-300;*/
+    /*}*/
+    /**/
+    /*@utility active {*/
+    /*    @apply text-blue-400;*/
+    /*}*/
+    /**/
     .glass-card {
-        @apply bg-gray-500/40 backdrop-blur-md border border-gray-700/80 rounded-lg;
+        @apply bg-gray-800/40 backdrop-blur-md border border-gray-700/80 rounded-lg;
     }
+
 }
 
 /* Custom utilities */

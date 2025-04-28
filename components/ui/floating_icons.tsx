@@ -1,27 +1,16 @@
 "use client"
-
 import { Code, Database, Figma, Server, Terminal } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 
 const icons = [
-    { Icon: Code, color: "text-primary-400", delay: 0, x: 0, y: 150 },
-    { Icon: Terminal, color: "text-secondary-400", delay: 0.5, x: 150, y: 0 },
-    { Icon: Server, color: "text-accent-400", delay: 1, x: 0, y: -150 },
-    { Icon: Database, color: "text-green-400", delay: 1.5, x: -150, y: 0 },
-    { Icon: Figma, color: "text-purple-400", delay: 2, x: 150, y: 150 },
+    { Icon: Code, color: "text-primary-400", delay: 0 },
+    { Icon: Terminal, color: "text-secondary-400", delay: 0.5 },
+    { Icon: Server, color: "text-accent-400", delay: 1 },
+    { Icon: Database, color: "text-green-400", delay: 1.5 },
+    { Icon: Figma, color: "text-purple-400", delay: 2 },
 ];
-icons.forEach((icon, i) => {
 
-    const angle = (i / icons.length) * 2 * Math.PI; // Spread equally around circle
-    const radius = 150; // distance from center
-
-    const offsetX = Math.cos(angle) * radius;
-    const offsetY = Math.sin(angle) * radius;
-
-    icon.x = offsetX;
-    icon.y = offsetY;
-})
 export default function FloatingIcons() {
     const floatingIconsRef = useRef<HTMLDivElement>(null);
 
@@ -63,7 +52,13 @@ export default function FloatingIcons() {
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-500/10 to-gray-500/20 backdrop-blur-xl"></div>
             </motion.div>
             {/* Floating Icons */}
-            {icons.map(({ Icon, color, delay, x, y }, i) => {
+            {icons.map(({ Icon, color, delay }, i) => {
+
+                const angle = (i / icons.length) * 2 * Math.PI; // Spread equally around circle
+                const radius = 150; // distance from center
+
+                const offsetX = Math.round(Math.cos(angle) * radius);
+                const offsetY = Math.round(Math.sin(angle) * radius);
 
 
                 return (
@@ -72,10 +67,10 @@ export default function FloatingIcons() {
                         initial={{ y: 0 }}
                         animate={{ y: [-10, 10, -10] }}
                         transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay }}
-                        className={`floating-icon  absolute  w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-lg bg-background-secondary/80 backdrop-blur-md border border-gray-700 shadow-lg ${color}`}
+                        className={`floating-icon top-20 left-20  absolute  w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-lg bg-gray-700/20 backdrop-blur-md border border-gray-700 shadow-lg ${color}`}
                         style={{
-                            top: `calc(50% + ${y}px)`,
-                            left: `calc(50% + ${x}px)`,
+                            top: `calc(50% + ${offsetY}px)`,
+                            left: `calc(50% + ${offsetX}px)`,
                             transform: `translate(-50%, -50%)`,
                         }}
 

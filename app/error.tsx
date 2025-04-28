@@ -28,7 +28,7 @@ export default function Error({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="min-h-screen flex items-center justify-center bg-background-primary pt-20"
+            className="min-h-screen flex items-center justify-center pt-20"
         >
             <div className="container-tight text-center px-4">
                 <h1 className="text-9xl font-bold text-primary-500 mb-4">404</h1>

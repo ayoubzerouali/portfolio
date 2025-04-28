@@ -26,19 +26,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     height={100}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background-primary/90 to-transparent opacity-70"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-400/90 to-transparent opacity-70"></div>
                 <div className="absolute inset-x-0 bottom-0 p-4">
                     <div className="flex flex-wrap gap-2 mb-2">
                         {project.technologies.slice(0, 3).map((tech, i) => (
                             <span
                                 key={i}
-                                className="text-xs px-2 py-1 rounded bg-background-accent/70 text-primary-300"
+                                className="text-xs px-2 py-1 rounded bg-cyan-200/80 text-black font-semibold"
                             >
                                 {tech}
                             </span>
                         ))}
                         {project.technologies.length > 3 && (
-                            <span className="text-xs px-2 py-1 rounded bg-background-accent/70 text-primary-300">
+                            <span className="text-xs px-2 py-1 rounded bg-cyan-500 text-black font-semibold">
                                 +{project.technologies.length - 3}
                             </span>
                         )}
@@ -47,15 +47,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
 
             <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-xl font-semibold mb-2">
                     {project.title}
                 </h3>
-                <p className="text-gray-400 mb-4 line-clamp-2">
+                <p className="text-gray-300 mb-4 line-clamp-2">
                     {project.description}
                 </p>
                 <Link
                     href={`/projects/${project.id}`}
-                    className="inline-flex items-center text-primary-400 hover:text-primary-300 font-medium"
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium"
                 >
                     View project <ArrowUpRight size={16} className="ml-1" />
                 </Link>

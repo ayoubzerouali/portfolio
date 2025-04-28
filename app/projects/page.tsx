@@ -24,7 +24,7 @@ const ProjectsPage = () => {
                 transition={{ duration: 0.5 }}
             >
                 {/* Projects Header */}
-                <section className="pt-32 pb-16 bg-background-primary">
+                <section className="pt-32 pb-16 ">
                     <div className="container-wide">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -44,9 +44,9 @@ const ProjectsPage = () => {
                                     <button
                                         key={index}
                                         onClick={() => setFilter(category)}
-                                        className={`px-4 py-2 rounded-md transition-all ${filter === category
-                                            ? 'bg-primary-500 text-white'
-                                            : 'bg-background-secondary text-gray-300 hover:bg-background-accent'
+                                        className={`px-4 py-2 rounded-md transition-all cursor-pointer ${filter === category
+                                            ? 'bg-blue-800'
+                                            : 'bg-gray-800 text-gray-300 hover:bg-blue-700/60'
                                             }`}
                                     >
                                         {category.charAt(0).toUpperCase() + category.slice(1)}

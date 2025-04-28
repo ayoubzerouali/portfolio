@@ -16,7 +16,7 @@ const Navbar = () => {
             if (isScrolled !== scrolled) {
                 setScrolled(isScrolled);
             }
-        }; 
+        };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -29,7 +29,7 @@ const Navbar = () => {
     ];
 
     const navbarClass = scrolled
-        ? 'bg-background-secondary/80 shadow-md backdrop-blur-md'
+        ? 'shadow-md backdrop-blur-md'
         : 'bg-transparent';
 
     return (
@@ -48,7 +48,7 @@ const Navbar = () => {
                         >
                             <Code size={28} />
                         </motion.div>
-                        <span className="text-xl font-semibold">Dev<span className="text-primary-400">Portfolio</span></span>
+                        <span className="text-xl font-semibold">Ayoub&apos;s<span className="text-blue-400">Portfolio</span></span>
                     </Link>
 
                     {/* Desktop Menu */}
@@ -57,7 +57,7 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 href={link.path}
-                                className={`nav-link ${pathname === link.path ? 'active' : ''}`}
+                                className={`hover:text-blue-300 transition-colors duration-300 ${pathname === link.path ? 'text-blue-400' : ''}`}
                             >
                                 {link.name}
                             </Link>

@@ -35,7 +35,7 @@ const BlogPage = () => {
                 transition={{ duration: 0.5 }}
             >
                 {/* Blog Header */}
-                <section className="pt-32 pb-16 bg-background-primary">
+                <section className="pt-32 pb-16">
                     <div className="container-wide">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ const BlogPage = () => {
                             transition={{ duration: 0.5 }}
                             className="text-center"
                         >
-                            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Blog & Articles</h1>
+                            <h1 className="text-4xl md:text-5xl font-bold mb-6 ">Blog & Articles</h1>
                             <p className="text-gray-400 max-w-3xl mx-auto mb-12">
                                 Insights, tutorials, and thoughts about web development, software engineering,
                                 and my journey as a developer.
@@ -57,7 +57,7 @@ const BlogPage = () => {
                                         placeholder="Search articles..."
                                         value={searchTerm}
                                         onChange={(e) => setSearchTerm(e.target.value)}
-                                        className="w-full rounded-md bg-background-secondary border border-gray-700 pl-10 pr-4 py-2 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 focus:outline-none"
+                                        className="w-full rounded-md bg-gray-800 border border-gray-700 pl-10 pr-4 py-2  placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
                                     />
                                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={18} />
                                 </div>
@@ -67,9 +67,9 @@ const BlogPage = () => {
                             <div className="flex flex-wrap justify-center gap-3 mb-10">
                                 <button
                                     onClick={() => setSelectedTag(null)}
-                                    className={`px-4 py-2 rounded-md transition-all ${selectedTag === null
-                                        ? 'bg-primary-500 text-white'
-                                        : 'bg-background-secondary text-gray-300 hover:bg-background-accent'
+                                    className={`px-4 py-2 rounded-md transition-all cursor-pointer ${selectedTag === null
+                                        ? 'bg-blue-800 '
+                                        : 'bg-gray-800 text-gray-300 hover:bg-blue-700/60'
                                         }`}
                                 >
                                     All
@@ -78,9 +78,9 @@ const BlogPage = () => {
                                     <button
                                         key={index}
                                         onClick={() => setSelectedTag(tag)}
-                                        className={`px-4 py-2 rounded-md transition-all ${selectedTag === tag
-                                            ? 'bg-primary-500 text-white'
-                                            : 'bg-background-secondary text-gray-300 hover:bg-background-accent'
+                                        className={`px-4 py-2 rounded-md transition-all cursor-pointer ${selectedTag === tag
+                                            ? 'bg-blue-800 '
+                                            : 'bg-gray-800 text-gray-300 hover:bg-blue-700/60'
                                             }`}
                                     >
                                         {tag}

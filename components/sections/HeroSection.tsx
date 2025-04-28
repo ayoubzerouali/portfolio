@@ -8,11 +8,9 @@ import ScrollDown from '../ui/srolldown';
 const HeroSection = () => {
 
     return (
-        <section className="h-dvh flex flex-col gap-4 items-center justify-center relative overflow-hidden pt-20">
+        <section className="min-h-screen flex flex-col gap-4 items-center justify-center relative overflow-hidden pt-20">
 
             <Canvas />
-            {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-radial from-background-primary to-background-primary opacity-90 z-0"></div>
 
             {/* Decorative grid */}
 
@@ -65,9 +63,9 @@ const HeroSection = () => {
                     </div>
 
                     <div className="flex items-center space-x-4">
-                        <SocialIcon icon={<Github size={20} />} href="https://github.com" label="GitHub" />
-                        <SocialIcon icon={<Twitter size={20} />} href="https://twitter.com" label="Twitter" />
-                        <SocialIcon icon={<Linkedin size={20} />} href="https://linkedin.com" label="LinkedIn" />
+                        <SocialIcon icon={<Github size={20} />} href="https://github.com/ayoubzerouali" label="GitHub" />
+                        <SocialIcon icon={<Twitter size={20} />} href="https://twitter.com/ayoubxzer" label="Twitter" />
+                        <SocialIcon icon={<Linkedin size={20} />} href="https://linkedin.com/ayoubzerouli" label="LinkedIn" />
                     </div>
                 </div>
                 <FloatingIcons />

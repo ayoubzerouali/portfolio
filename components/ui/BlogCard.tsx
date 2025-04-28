@@ -24,9 +24,11 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
                     alt={post.title}
                     height={100}
                     width={100}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform 
+                    duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background-primary/90 to-transparent opacity-70"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-400/90
+                to-transparent opacity-70"></div>
             </div>
 
             <div className="p-6">
@@ -43,7 +45,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
                 </div>
 
                 <h3 className="text-xl font-semibold mb-2 text-white">
-                    <Link href={`/blog/${post.id}`} className="hover:text-primary-400 transition-colors">
+                    <Link href={`/blog/${post.id}`} className="hover:text-cyan-400
+                    transition-colors">
                         {post.title}
                     </Link>
                 </h3>
@@ -57,7 +60,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
                         {post.tags.map((tag, i) => (
                             <span
                                 key={i}
-                                className="text-xs px-2 py-1 rounded bg-background-accent/70 text-primary-300"
+                                className="text-xs px-2 py-1 rounded bg-cyan-200/80 
+                                text-black font-semibold"
                             >
                                 {tag}
                             </span>
