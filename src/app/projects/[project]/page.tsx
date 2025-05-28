@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/data/projects';
-import { Project } from '@/types';
+import type { Project } from '@/types';
 import Image from 'next/image';
 
 const ProjectDetail = () => {
@@ -19,7 +19,7 @@ const ProjectDetail = () => {
         setLoading(true);
         setTimeout(() => {
             const foundProject = projects.find(p => p.id === id);
-            setProject(foundProject || null);
+            setProject(foundProject ?? null);
             setLoading(false);
         }, 300);
     }, [id]);
@@ -171,7 +171,7 @@ const ProjectDetail = () => {
 
                                     <div>
                                         <p className="text-gray-400 text-sm">Client</p>
-                                        <p className="text-white">{project.client || 'Personal Project'}</p>
+                                        <p className="text-white">{project.client ?? 'Personal Project'}</p>
                                     </div>
 
                                     <div>
@@ -181,7 +181,7 @@ const ProjectDetail = () => {
 
                                     <div>
                                         <p className="text-gray-400 text-sm">Role</p>
-                                        <p className="text-white">{project.role || 'Full-stack Developer'}</p>
+                                        <p className="text-white">{project.role ?? 'Full-stack Developer'}</p>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@ const ProjectDetail = () => {
                                             width={100}
                                             height={100}
                                             src={screenshot.url}
-                                            alt={screenshot.caption || `Screenshot ${i + 1}`}
+                                            alt={screenshot.caption ?? `Screenshot ${i + 1}`}
                                             className="w-full h-auto"
                                         />
                                         {screenshot.caption && (

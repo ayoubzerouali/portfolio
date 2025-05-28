@@ -28,7 +28,7 @@ export default function FloatingIcons() {
             const moveX = (x - centerX) / 50; // Reduced intensity
             const moveY = (y - centerY) / 50;
 
-            const index = parseInt(container.dataset.index || '0');
+            const index = parseInt(container.dataset.index ?? '0');
             const factor = (index % 3) + 1; // Vary movement by icon
             container.style.transform = `translate(${moveX * factor}px, ${moveY * factor}px)`;
         };

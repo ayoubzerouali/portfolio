@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
-import { Project } from '../../types';
+import type { Project } from '../../types';
 import Image from 'next/image';
 
 interface ProjectCardProps {

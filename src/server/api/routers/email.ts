@@ -5,14 +5,14 @@ import {
     createTRPCRouter,
     publicProcedure,
 } from "@/server/api/trpc";
-import { waitlist } from "@/server/db/schema";
+import { newsletter } from "@/server/db/schema";
 
 export const emailRouter = createTRPCRouter({
 
     create: publicProcedure
         .input(z.object({ email: z.string().min(1) }))
         .mutation(async ({ ctx, input }) => {
-            await ctx.db.insert(waitlist).values({
+            await ctx.db.insert(newsletter).values({
                 email: input.email,
             });
         }),

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Calendar, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
-import { BlogPost } from '../../types';
+import type { BlogPost } from '../../types';
 import Image from 'next/image';
 
 interface BlogCardProps {

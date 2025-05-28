@@ -23,7 +23,7 @@ const BlogPost = async ({ params }: { params: Promise<{ postId: string }> }) => 
     //    setLoading(true);
     //    setTimeout(() => {
     //        const foundPost = blogPosts.find(p => p.id === id);
-    //        setPost(foundPost || null);
+    //        setPost(foundPost ?? null);
     //        setLoading(false);
     //    }, 300);
     //}, [id]);
@@ -154,7 +154,7 @@ const BlogPost = async ({ params }: { params: Promise<{ postId: string }> }) => 
                                             width={1000}
                                             height={1000}
                                             src={section.url}
-                                            alt={section.caption || ''}
+                                            alt={section.caption ?? ''}
                                             className="rounded-md w-full h-auto"
                                         />
                                         {section.caption && (
