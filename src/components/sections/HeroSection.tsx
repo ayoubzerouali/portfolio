@@ -8,7 +8,8 @@ import ScrollDown from '../ui/srolldown';
 const HeroSection = () => {
 
     return (
-        <section className="min-h-screen flex flex-col gap-4 items-center justify-center relative overflow-hidden pt-20">
+        <section className="min-h-screen flex flex-col gap-4 items-center justify-center
+        relative overflow-hidden pt-20 px-4">
 
             <Canvas />
 
@@ -74,7 +75,6 @@ const HeroSection = () => {
 
             {/* Scroll down indicator */}
 
-            <input type="text" id="email" className="relative z-10 flex text-black bg-white border border-gray-300 focus:ring-primary-500 focus:border-primary-500  rounded-lg p-2.5" />
             <ScrollDown />
         </section>
     );

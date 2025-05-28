@@ -36,44 +36,37 @@ const Navbar = () => {
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navbarClass}`}
         >
-            <div className="container-wide py-4">
-                <div className="flex items-center justify-between">
+            <div className="container-wide pb-4">
+                <div className="flex items-center justify-end ">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 text-white">
-                        <motion.div
-                            initial={{ rotate: 0 }}
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 2, repeat: Infinity, repeatType: 'loop', ease: 'linear' }}
-                            className="text-primary-400"
-                        >
-                            <Code size={28} />
-                        </motion.div>
-                        <span className="text-xl font-semibold">Ayoub&apos;s<span className="text-blue-400">Portfolio</span></span>
-                    </Link>
 
                     {/* Desktop Menu */}
-                    <nav className="hidden md:flex items-center space-x-8">
+                    <nav className="hidden md:flex flex-grow gap-10 w-2/3">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.path}
-                                className={`hover:text-blue-300 transition-colors duration-300 ${pathname === link.path ? 'text-blue-400' : ''}`}
+                                className={`flex justify-center py-2 px-5 hover:bg-blue-400/20
+                                    w-35 border border-dotted border-white/20  transition-colors 
+                                    duration-300 rounded-b-xl ${pathname === link.path ?
+                                        'bg-blue-400/20' : ''}`}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <Link href="#contact" className="btn-primary">
-                            Contact Me
-                        </Link>
                     </nav>
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-gray-200 focus:outline-none"
+                        className="md:hidden text-gray-200  focus:outline-none "
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        {isOpen ? <X size={24} /> : <Menu size={44} />}
                     </button>
+                    <Link href="#contact" className="hidden md:flex py-2 px-5 hover:bg-blue-500 w-1/9
+                        transition-colors duration-300 bg-blue-600 rounded-b-xl font-bold">
+                        Contact Me
+                    </Link>
                 </div>
 
                 {/* Mobile Menu */}
@@ -83,14 +76,14 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
-                        className="md:hidden py-4 px-2"
+                        className="md:hidden py-4 px-2 bg-black/90"
                     >
                         <div className="flex flex-col space-y-4">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.path}
-                                    className={`nav-link ${pathname === link.path ? 'active' : ''}`}
+                                    className={`border-b nav-link ${pathname === link.path ? 'active' : ''}`}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}

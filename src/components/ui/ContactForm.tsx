@@ -2,10 +2,10 @@
 import { useState } from 'react';
 import { Send } from 'lucide-react';
 import { motion } from 'motion/react';
-
+import { createContact } from './action';
 const ContactForm = () => {
     const [formData, setFormData] = useState({
-        name: '',
+        fullname: '',
         email: '',
         subject: '',
         message: '',
@@ -31,15 +31,10 @@ const ContactForm = () => {
         try {
             // In a real application, you would send the form data to your backend
             //await new Promise(resolve => setTimeout(resolve, 1000));
-            const res = await fetch('/api/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
 
-            if (!res.ok) {
+
+            const res = await createContact(formData);
+            if (res.status !== 200) {
                 throw new Error(
                     res.status === 429
                         ? 'Rate limit exceeded, please wait a minute and try again.'
@@ -49,9 +44,9 @@ const ContactForm = () => {
 
 
             setSubmitSuccess(true);
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ fullname: '', email: '', subject: '', message: '' });
         } catch (error) {
-            console.log(error);
+            console.error('Error in form submission:', error)
             setSubmitError('There was an error sending your message. Please try again.');
         } finally {
             setIsSubmitting(false);
@@ -91,9 +86,9 @@ const ContactForm = () => {
                             </label>
                             <input
                                 type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
+                                id="fullname"
+                                name="fullname"
+                                value={formData.fullname}
                                 onChange={handleChange}
                                 required
                                 className="w-full rounded-md  border border-gray-700 px-4 py-2 text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
