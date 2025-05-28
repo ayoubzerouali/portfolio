@@ -34,12 +34,25 @@ const ContactForm = () => {
 
 
             const res = await createContact(formData);
-            if (res.status !== 200) {
-                throw new Error(
-                    res.status === 429
-                        ? 'Rate limit exceeded, please wait a minute and try again.'
-                        : 'There was an error sending your message. Please try again.'
-                )
+            if (!res.success) {
+                let errorMessage = res.message;
+
+                // Customize error messages based on error type
+                switch (res.error) {
+                    case 'DUPLICATE_EMAIL':
+                        errorMessage = 'You have already submitted a contact form with this email address. If you need to send another message, please use a different email or contact us directly.';
+                        break;
+                    case 'RATE_LIMIT':
+                        errorMessage = 'Too many requests. Please wait a minute and try again.';
+                        break;
+                    case 'DATABASE_ERROR':
+                        errorMessage = 'There was a technical issue. Please try again in a few minutes.';
+                        break;
+                    default:
+                        errorMessage = 'There was an error sending your message. Please try again.';
+                }
+
+                throw new Error(errorMessage);
             }
 
 
@@ -47,7 +60,7 @@ const ContactForm = () => {
             setFormData({ fullname: '', email: '', subject: '', message: '' });
         } catch (error) {
             console.error('Error in form submission:', error)
-            setSubmitError('There was an error sending your message. Please try again.');
+            setSubmitError(`${error as string}`);
         } finally {
             setIsSubmitting(false);
         }

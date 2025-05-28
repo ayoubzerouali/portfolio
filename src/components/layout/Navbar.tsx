@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Code } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
 
@@ -63,7 +63,7 @@ const Navbar = () => {
                     >
                         {isOpen ? <X size={24} /> : <Menu size={44} />}
                     </button>
-                    <Link href="#contact" className="hidden md:flex py-2 px-5 hover:bg-blue-500 w-1/9
+                    <Link href="#contact" className="hidden md:flex py-2 px-5 hover:bg-blue-500 
                         transition-colors duration-300 bg-blue-600 rounded-b-xl font-bold">
                         Contact Me
                     </Link>

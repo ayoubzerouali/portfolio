@@ -32,8 +32,8 @@ export const contact = createTable(
         id: d.integer().primaryKey().generatedByDefaultAsIdentity(),
         fullname: d.varchar({ length: 256 }).notNull(),
         email: d.varchar({ length: 256 }).notNull().unique(),
-        subject: d.varchar({ length: 256 }),
-        message: d.text(),
+        subject: d.varchar({ length: 256 }).notNull(),
+        message: d.text().notNull(),
         createdAt: d
             .timestamp({ withTimezone: true })
             .default(sql`CURRENT_TIMESTAMP`)

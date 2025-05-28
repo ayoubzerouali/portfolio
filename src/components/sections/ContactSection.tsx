@@ -18,7 +18,7 @@ const ContactSection = () => {
         {
             icon: <Mail size={24} className="text-primary-400" />,
             title: 'Email',
-            details: 'ayoubxzer@gmail.com',
+            details: 'ayoub.zerouali@clicout.com',
         },
     ];
 

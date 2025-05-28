@@ -1,67 +1,30 @@
-
-//import { useEffect, useState } from 'react';
-//import { useParams } from 'next/navigation';
-import Link from 'next/link';
-// import { motion } from 'motion/react';
+"use client"
+import { motion } from "motion/react"
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
-// import { blogPosts } from '@/data/blog';
-// import type { BlogPost as BlogPostType } from '@/types';
-import Image from 'next/image';
-
-export default async function BlogPost({ params }: { params: Promise<{ postId: string }> }) {
-    const { postId } = await params
-    //const { id } = useParams<{ id: string }>();
-    //const [post, setPost] = useState<BlogPostType | null>(null);
-    //const [loading, setLoading] = useState(true);
-
-    // const post = blogPosts.find(p => p.id === "modern-php-techniques");
-
-
-    //useEffect(() => {
-    //    // Simulate loading
-    //    setLoading(true);
-    //    setTimeout(() => {
-    //        const foundPost = blogPosts.find(p => p.id === id);
-    //        setPost(foundPost ?? null);
-    //        setLoading(false);
-    //    }, 300);
-    //}, [id]);
-
-    //if (loading) {
-    //    return (
-    //        <div className="min-h-screen flex items-center justify-center bg-background-primary pt-20">
-    //            <div className="animate-spin h-12 w-12 border-4 border-primary-500 rounded-full border-t-transparent"></div>
-    //        </div>
-    //    );
-    //}
-
-    const { default: Post } = await import(`@/content/${postId}.mdx`)
-    // if (!post) {
-    //     return (
-    //         <div className="min-h-screen flex flex-col items-center justify-center bg-background-primary pt-20 text-center px-4">
-    //             <h2 className="text-3xl font-bold text-white mb-4">Article Not Found</h2>
-    //             <p className="text-gray-400 mb-8">The article you&apos;re looking for doesn&apos;t exist or has been removed.</p>
-    //             <Link href="/blog" className="btn-primary">
-    //                 <ArrowLeft size={16} className="mr-2" /> Back to Blog
-    //             </Link>
-    //         </div>
-    //     );
-    // }
-
-    //
+import type { BlogPost } from "@/types";
+import Link from "next/link";
+import Image from "next/image";
+export function Post({ post }: Readonly<{ post: BlogPost }>) {
     return (
-        <Post />
-    )
-    return (
-        <div
-            className="bg-background-primary pt-32 pb-20">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-background-primary pt-32 pb-20"
+        >
             <div className="container-tight">
                 <Link href="/blog" className="inline-flex items-center text-gray-400 hover:text-primary-400 mb-8 transition-colors">
                     <ArrowLeft size={16} className="mr-2" /> Back to blog
                 </Link>
 
                 {/* Article Header */}
-                <div className="mb-12">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-12"
+                >
                     <div className="flex flex-wrap gap-2 mb-4">
                         {post.tags.map((tag, i) => (
                             <span
@@ -89,10 +52,14 @@ export default async function BlogPost({ params }: { params: Promise<{ postId: s
                             <span>{post.readTime} min read</span>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Featured Image */}
-                <div className="rounded-lg overflow-hidden shadow-2xl mb-12"
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="rounded-lg overflow-hidden shadow-2xl mb-12"
                 >
                     <Image
                         width={1000}
@@ -101,10 +68,14 @@ export default async function BlogPost({ params }: { params: Promise<{ postId: s
                         alt={post.title}
                         className="w-full h-auto"
                     />
-                </div>
+                </motion.div>
 
                 {/* Article Content */}
-                <div className="prose prose-invert prose-lg max-w-none text-gray-300 space-y-6"
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="prose prose-invert prose-lg max-w-none text-gray-300 space-y-6"
                 >
                     {post.content.map((section, i: number) => (
                         <div key={i} className="mb-8">
@@ -160,14 +131,8 @@ export default async function BlogPost({ params }: { params: Promise<{ postId: s
                             )}
                         </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
-        </div>
-    );
-};
-// export function generateStaticParams() {
-//     return [{ slug: 'welcome' }]
-// }
-//
-//
-// export const dynamicParams = false
+        </motion.div>
+    )
+}
