@@ -20,7 +20,7 @@ const HeroSection = () => {
 
                     <div className="flex items-center space-x-2 mb-4">
                         <div className="h-0.5 w-8 bg-primary-500"></div>
-                        <span className="text-primary-400 font-mono">Hello, I&apos;m a</span>
+                        <span className="text-primary-400 font-mono">Hello, I&apos;m <span className='text-yellow-300'>Ayoub</span></span>
                     </div>
 
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
@@ -48,9 +48,8 @@ const HeroSection = () => {
                     </div>
 
                     <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl">
-                        I specialize in creating high-quality digital experiences using
-                        PHP, TypeScript, Golang, and mobile development technologies. With 4 years of
-                        experience in web and mobile app development.
+                        I started my journey with a passion for technology and ended up
+                            obsessive about creating new products and helping out small businesses/
                     </p>
 
                     <div className="flex flex-wrap gap-4 mb-8">

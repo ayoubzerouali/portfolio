@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 
 :root {
@@ -185,3 +186,4 @@ h6 {
 ::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-700;
 }
+

@@ -1,6 +1,6 @@
 'use client' // Error boundaries must be Client Components
 
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import { useEffect } from 'react'
 import { motion } from "motion/react";
 import Link from 'next/link';
